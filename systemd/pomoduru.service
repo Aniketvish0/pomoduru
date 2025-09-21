@@ -1,0 +1,22 @@
+[Unit]
+Description=Pomoduru Smart Pomodoro Timer
+After=network.target
+Wants=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/pomoduru
+Restart=always
+RestartSec=5
+Environment=DISPLAY=:0
+Environment=XAUTHORITY=%h/.Xauthority
+
+# Security settings
+NoNewPrivileges=yes
+ProtectHome=yes
+ProtectSystem=strict
+ReadWritePaths=%h/.config/pomoduru
+PrivateTmp=yes
+
+[Install]
+WantedBy=default.target
