@@ -11,14 +11,12 @@ import (
 )
 
 func main() {
-	// Load configuration
 	cfg, err := config.LoadConfig()
 	if err != nil {
 		fmt.Printf("Error loading config: %v\n", err)
 		os.Exit(1)
 	}
 
-	// Create timer
 	t := timer.NewTimer(cfg)
 
 	// Create and start scheduler if enabled
